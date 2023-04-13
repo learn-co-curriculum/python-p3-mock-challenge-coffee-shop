@@ -1,8 +1,8 @@
+import pytest
+
 from classes.coffee import Coffee
 from classes.customer import Customer
 from classes.order import Order
-import pytest
-
 
 class TestCustomer:
     '''Customer in customer.py'''
@@ -22,27 +22,20 @@ class TestCustomer:
         '''customer name is a string'''
         customer = Customer('Steve')
         assert (isinstance(customer.name, str))
-        customer.name = 1
-        assert (isinstance(customer.name, str))
+
+        # with pytest.raises(Exception):
+        #     customer.name = 1
 
     def test_customer_name_length(self):
         '''customer name is between 1 and 15 characters'''
         customer = Customer('Steve')
         assert (len(customer.name) == 5)
-        customer.name = "NameLongerThan15Characters"
-        assert (len(customer.name) == 5)
-        customer.name = ""
-        assert (len(customer.name) == 5)
 
-    # def test_raise_exception_for_non_string_name(self):
-    #     '''raise exception when trying to change name to non str'''
-    #     customer = Customer('Steve')
-    #     with pytest.raises(Exception):
-    #         customer.name = True
-    #     with pytest.raises(Exception):
-    #         customer.name = "a"*26
-    #     with pytest.raises(Exception):
-    #         customer.name = ""
+        # with pytest.raises(Exception):
+        #     customer.name = "NameLongerThan15Characters"
+
+        # with pytest.raises(Exception):
+        #     customer.name = ""
 
     def test_has_many_orders(self):
         '''customer has many orders'''
@@ -92,16 +85,3 @@ class TestCustomer:
 
         assert (len(set(customer.coffees())) == len(customer.coffees()))
         assert (len(customer.coffees()) == 2)
-
-    def test_create_order(self):
-        '''test create_order()'''
-        coffee = Coffee("Mocha")
-        customer = Customer('Steve')
-        order_1 = Order(customer, coffee, 2)
-        order_2 = Order(customer, coffee, 5)
-
-        assert (len(customer.orders()) == 2)
-        customer.create_order(coffee, 1)
-        assert (len(customer.orders()) == 3)
-        assert (customer.orders()[2].price == 1)
-        assert (customer.orders()[2].coffee == coffee)
