@@ -65,7 +65,8 @@ build out any helper methods if needed.
   - Return name
   - Names must be of type `str`
   - Names must be between 1 and 15 characters, inclusive
-  - if you are using exceptions comment out the test on lines 32 - 35 in the customer_test.py and uncomment lines 37 - 45
+  - if you are using exceptions, uncomment lines 26-27 and 34-38 in
+    `customer_test.py`.
 
 #### Coffee
 
@@ -74,8 +75,8 @@ build out any helper methods if needed.
 - `Coffee property name`
   - Returns the coffee's name
   - Should not be able to change after the coffee is created
-  - hint: hasattr()
-  - if you are using exceptions comment out the test on lines 20 - 24 in the coffee_test.py and uncomment lines 26 - 30
+  - _hint: `hasattr()`_
+  - if you are using exceptions, uncomment lines 24-25 in `coffee_test.py`.
 
 #### Order
 
@@ -98,21 +99,29 @@ build out any helper methods if needed.
 
 #### Coffee
 
-- `Coffee orders()`
+- `Coffee orders(new_order=None)`
+  - Adds new orders to coffee
   - Returns a list of all orders for that coffee
   - orders must be of type `Order`
-- `Coffee customers()`
+  - _Will be called from `Order.__init__`_
+- `Coffee customers(new_customer=None)`
+  - Adds new customers to coffee
   - Returns a **unique** list of all customers who have ordered a particular coffee.
   - Customers must be of type `Customer`
+  - _Will be called from `Order.__init__`_
 
 #### Customer
 
-- `Customer orders()`
+- `Customer orders(new_order=None)`
+  - Adds new orders to customer
   - Returns a list of all orders a customer has ordered
   - orders must be of type `Order`
-- `Customer coffees()`
+  - _Will be called from `Order.__init__`_
+- `Customer coffees(new_coffee=None)`
+  - Adds new coffees to customer
   - Returns a **unique** list of all coffees a customer has ordered
   - Coffees must be of type `Coffee`
+  - _Will be called from `Order.__init__`_
 
 ### Aggregate and Association Methods
 
@@ -135,14 +144,10 @@ build out any helper methods if needed.
 
 Uncomment the following lines in the test files:
 
-#### customer_tests.py
+#### customer_test.py
 
-- lines 37 - 45
+- lines 26-27 and 34-38
 
-#### coffee_tests.py
+#### coffee_test.py
 
-- lines 26 - 30
-
-#### order_tests.py
-
-- lines 20 - 30
+- lines 24-25

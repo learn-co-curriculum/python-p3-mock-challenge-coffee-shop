@@ -17,18 +17,6 @@ class TestOrders:
         assert (order_1.price == 2)
         assert (order_2.price == 5)
 
-    # def test_raise_exception_for_invalid_price(self):
-    #     '''raise exception when invalid price'''
-    #     coffee = Coffee("Mocha")
-    #     customer = Customer('Steve')
-    #     order = Order(customer, coffee, 2)
-    #     with pytest.raises(Exception):
-    #         order.rating = 13
-    #     with pytest.raises(Exception):
-    #         order.rating = "5"
-    #     with pytest.raises(Exception):
-    #         order.rating = -3
-
     def test_has_a_customer(self):
         '''order has a customer .'''
         coffee = Coffee("Mocha")

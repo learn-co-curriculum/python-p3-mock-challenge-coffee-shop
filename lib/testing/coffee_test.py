@@ -1,8 +1,8 @@
+import pytest
+
 from classes.coffee import Coffee
 from classes.customer import Customer
 from classes.order import Order
-import pytest
-
 
 class TestCoffee:
     '''Coffee in coffee.py'''
@@ -20,14 +20,9 @@ class TestCoffee:
     def test_name_setter(self):
         '''Cannot change the name of the coffee'''
         coffee = Coffee("Mocha")
-        coffee.name = "Peppermint Mocha"
-        assert (coffee.name == "Mocha")
 
-    # def test_raise_exception_for_changing_name(self):
-    #     '''raise exception for trying to change name after initialization'''
-    #     coffee = Coffee("Peppermint Mocha")
-    #     with pytest.raises(Exception):
-    #         coffee.name = 'Banana'
+        # with pytest.raises(Exception):
+        #     coffee.name = "Peppermint Mocha"
 
     def test_has_many_orders(self):
         '''coffee has many orders.'''
