@@ -67,6 +67,7 @@ build out any helper methods if needed.
   - Names must be between 1 and 15 characters, inclusive
   - if you are using exceptions, uncomment lines 26-27 and 34-38 in
     `customer_test.py`.
+    - `raise Exception` if setter fails
 
 #### Coffee
 
@@ -77,6 +78,7 @@ build out any helper methods if needed.
   - Should not be able to change after the coffee is created
   - _hint: `hasattr()`_
   - if you are using exceptions, uncomment lines 24-25 in `coffee_test.py`.
+    - `raise Exception` if setter fails
 
 #### Order
 
@@ -85,6 +87,7 @@ build out any helper methods if needed.
 - `Order property price`
   - Returns the price for a coffee
   - Price must be a number between 1 and 10, inclusive
+    - `raise Exception` if setter fails
 
 ### Object Relationship Methods and Properties
 
@@ -93,9 +96,11 @@ build out any helper methods if needed.
 - `Order property customer`
   - Returns the customer object for that order
   - Must be of type `Customer`
+  - `raise Exception` if setter fails
 - `Order property coffee`
   - Returns the coffee object for that order
   - Must be of type `Coffee`
+  - `raise Exception` if setter fails
 
 #### Coffee
 
