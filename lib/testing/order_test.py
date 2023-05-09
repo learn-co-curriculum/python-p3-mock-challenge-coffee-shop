@@ -16,6 +16,20 @@ class TestOrders:
 
         assert (order_1.price == 2)
         assert (order_2.price == 5)
+      
+    # we added this test  
+    def test_has_price_number(self):
+        '''price is a number'''
+        
+        coffee = Coffee("Mocha")
+        customer = Customer('Steve')
+        order_1 = Order(customer, coffee, 2)
+        order_2 = Order(customer, coffee, 5)
+        
+        with pytest.raises(Exception):
+            order_1.price = "Peppermint Mocha"
+            
+    # /////////////////////////////////////////
 
     def test_has_a_customer(self):
         '''order has a customer .'''

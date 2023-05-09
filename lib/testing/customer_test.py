@@ -22,21 +22,25 @@ class TestCustomer:
         '''customer name is a string'''
         customer = Customer('Steve')
         assert (isinstance(customer.name, str))
-
-        # with pytest.raises(Exception):
-        #     customer.name = 1
+        
+        # uncommented  
+        with pytest.raises(Exception):
+            customer.name = 1
+        # ------------------------
 
     def test_customer_name_length(self):
         '''customer name is between 1 and 15 characters'''
         customer = Customer('Steve')
         assert (len(customer.name) == 5)
+        
+        # uncommented
+        with pytest.raises(Exception):
+            customer.name = "NameLongerThan15Characters"
 
-        # with pytest.raises(Exception):
-        #     customer.name = "NameLongerThan15Characters"
-
-        # with pytest.raises(Exception):
-        #     customer.name = ""
-
+        with pytest.raises(Exception):
+            customer.name = ""
+        # ------------------------
+        
     def test_has_many_orders(self):
         '''customer has many orders'''
         coffee = Coffee("Vanilla Latte")
