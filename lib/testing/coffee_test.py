@@ -11,10 +11,6 @@ class TestCoffee:
         '''coffee is initialized with a name'''
         coffee = Coffee("Mocha")
         assert (coffee.name == "Mocha")
-
-    def test_name_is_string(self):
-        '''coffee is initialized with a name of type str'''
-        coffee = Coffee("Mocha")
         assert (isinstance(coffee.name, str))
 
     def test_name_setter(self):
