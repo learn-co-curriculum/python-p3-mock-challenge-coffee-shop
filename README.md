@@ -171,11 +171,6 @@ build out any helper methods if needed.
 
 ### Aggregate and Association Methods
 
-#### Customer
-
-- `def create_order(coffee, price)`
-  - given a **coffee object** and a price(as an integer), creates a
-    new order and associates it with that customer and coffee.
 
 #### Coffee
 
