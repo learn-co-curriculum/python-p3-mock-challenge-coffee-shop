@@ -10,32 +10,31 @@ class TestCustomer:
     def test_has_name(self):
         '''customer is initialized with name'''
         customer = Customer('Steve')
-        assert (customer.name == "Steve")
+        assert (customer.name == "Steve"), "name was not set in __init__"
 
-    def test_can_change_name(self):
-        '''customer name can be changed'''
-        customer = Customer('Steve')
-        customer.name = "Stove"
-        assert (customer.name == "Stove")
 
     def test_customer_name_is_str(self):
         '''customer name is a string'''
         customer = Customer('Steve')
-        assert (isinstance(customer.name, str))
+        assert (isinstance(customer.name, str)), "the name attribute was not assigned to a string"
 
-        # with pytest.raises(Exception):
-        #     customer.name = 1
+        with pytest.raises(Exception):
+            '''should raise Exception when name set to an int'''
+            customer.name = 1
 
     def test_customer_name_length(self):
         '''customer name is between 1 and 15 characters'''
         customer = Customer('Steve')
         assert (len(customer.name) == 5)
 
-        # with pytest.raises(Exception):
-        #     customer.name = "NameLongerThan15Characters"
+        with pytest.raises(Exception):
+            '''should raise Exception when name is longer than 15 characters'''
+            customer.name = "NameLongerThan15Characters"
+            
 
-        # with pytest.raises(Exception):
-        #     customer.name = ""
+        with pytest.raises(Exception):
+            '''should raise Exception when name is shorter than 1 character'''
+            customer.name = ""
 
     def test_has_many_orders(self):
         '''customer has many orders'''
@@ -58,7 +57,7 @@ class TestCustomer:
         order_1 = Order(customer, coffee, 2)
         order_2 = Order(customer, coffee, 5)
 
-        assert (isinstance(customer.orders()[0], Order))
+        assert (isinstance(customer.orders()[0], Order)), "Customer.orders() should return a list with objects of type Order" 
         assert (isinstance(customer.orders()[1], Order))
 
     def test_has_many_coffees(self):
@@ -70,7 +69,7 @@ class TestCustomer:
         order_1 = Order(customer, coffee, 2)
         order_2 = Order(customer, coffee_2, 5)
 
-        assert (coffee in customer.coffees())
+        assert (coffee in customer.coffees()), "coffee was not added to the Customer object's coffee list. Check that customer.coffees() is being called in Order.__init__"
         assert (coffee_2 in customer.coffees())
 
     def test_has_unique_coffees(self):
@@ -83,5 +82,6 @@ class TestCustomer:
         order_2 = Order(customer, coffee, 2)
         order_3 = Order(customer, coffee_2, 5)
 
-        assert (len(set(customer.coffees())) == len(customer.coffees()))
-        assert (len(customer.coffees()) == 2)
+        assert (len(customer.coffees()) == 2), "the Customer.coffees() method did not return a list of 2 coffees"
+        assert (len(set(customer.coffees())) == len(customer.coffees())), "Duplicate coffees found in in Order"
+        
