@@ -59,16 +59,19 @@ build out any helper methods if needed.
 
 #### Customer
 
-- `def __init__(self, name)`
+- 
+  ```python
+  def __init__(self, name)
+  ```
   - Customer should be initialized with a name 
 - 
-  ```
+  ```python
   @property
   def name(self)
   ```
     - Returns the customer's name, as a string
 - 
-  ```
+  ```python
   @name.setter
   def name(self, name)
   ```
@@ -79,16 +82,19 @@ build out any helper methods if needed.
 
 #### Coffee
 
-- `def __init__(self, name)`
+- 
+  ```python
+  def __init__(self, name)
+  ```
   - Coffees should be initialized with a name, as a string
 - 
-  ```
+  ```python
   @property
   def name(self)
   ```
     - Returns the coffee's name
 - 
-  ```
+  ```python
   @name.setter
   def name(self, name)
   ```
@@ -98,42 +104,45 @@ build out any helper methods if needed.
 
 #### Order
 
-- `def __init__(self, customer, coffee, price)`
+- 
+    ```python
+    def __init__(self, customer, coffee, price)
+    ```
   - Orders should be initialized with a customer, coffee, and a price (a number)
 - 
-  ```
+  ```python
   @property
   def price(self)
   ```
     - Returns the price for an order
 - 
-  ```
+  ```python
   @price.setter
   def price(self, price)
   ```
     - Price must be at least 1 and no greater than 10
     - `raise Exception` if setter fails
 - 
-  ```
+  ```python
   @property
   def customer(self)
   ```
     - Returns the customer object for that order
 - 
-  ```
+  ```python
   @customer.setter
   def customer(self, customer)
   ```
     - The argument `customer` must be of type `Customer`
     - `raise Exception` if setter fails
 - 
-  ```
+  ```python
   @property
   def coffee(self)
   ```
     - Returns the coffee object for that order
 - 
-  ```
+  ```python
   @coffee.setter
   def coffee(self, coffee)
   ```
@@ -145,7 +154,10 @@ build out any helper methods if needed.
 
 #### Coffee
 
-- `def orders(new_order=None)`
+- 
+  ```python
+  def orders(new_order=None)
+  ```
   - Adds `new_order` to `Coffee`'s 
   - Returns a list of all orders for that coffee
   - orders must be of type `Order`
@@ -158,12 +170,18 @@ build out any helper methods if needed.
 
 #### Customer
 
-- `def orders(new_order=None)`
+- 
+  ```python
+  def orders(new_order=None)
+  ```
   - Adds new orders to customer
   - Returns a list of all orders a customer has ordered
   - orders must be of type `Order`
   - _Will be called from `Order.__init__`_
-- `def coffees(new_coffee=None)`
+- 
+  ```python
+  def coffees(new_coffee=None)
+  ```
   - Adds new coffees to customer
   - Returns a list of all **unique** coffees a customer has ordered (i.e. the list will not contain the same coffee more than once).
     - The list must only contain objects of type `Coffee`
@@ -174,9 +192,15 @@ build out any helper methods if needed.
 
 #### Coffee
 
-- `def num_orders()`
+- 
+  ```python
+  def num_orders()
+  ```
   - Returns the total number of times that coffee has been ordered
-- `def average_price()`
+- 
+  ```python
+  def average_price()
+  ```
   - Returns the average price for a coffee based on its orders
   - Reminder: you can calculate the average by adding up all the orders prices and
     dividing by the number of orders
