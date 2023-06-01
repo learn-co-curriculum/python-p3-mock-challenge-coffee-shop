@@ -162,7 +162,10 @@ build out any helper methods if needed.
   - Returns a list of all orders for that coffee
   - orders must be of type `Order`
   - _Will be called from `Order.__init__`_
-- `def customers(new_customer=None)`
+- 
+  ```python
+  def customers(new_customer=None)
+  ```
   - Adds new customers to coffee
   - Returns a list of all **unique** customers who have ordered a particular coffee (i.e. the list will not contain the same customer more than once).
     - The list must only contain objects of type `Customer`
