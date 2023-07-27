@@ -158,7 +158,7 @@ build out any helper methods if needed.
   ```python
   def orders(new_order=None)
   ```
-  - Adds `new_order` to `Coffee`'s 
+  - Adds `new_order` to `Coffee`'s orders
   - Returns a list of all orders for that coffee
   - orders must be of type `Order`
   - _Will be called from `Order.__init__`_
