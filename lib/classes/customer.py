@@ -28,7 +28,7 @@ class Customer:
         return Order(self, new_coffee, new_price)
 
     @classmethod
-    def best_aficionado(cls, coffee):
+    def most_aficionado(cls, coffee):
         if not isinstance(coffee, Coffee):
             raise TypeError("Must be a Coffee instance")
         if coffee_all_orders := [order for order in Order.all if order.coffee is coffee]:

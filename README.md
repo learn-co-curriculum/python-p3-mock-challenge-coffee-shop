@@ -141,7 +141,7 @@ build out any helper methods if needed.
 
 #### Bonus: Aggregate and Association Method
 
-- `Customer classmethod best_aficionado(cls, coffee)`
+- `Customer classmethod most_aficionado(cls, coffee)`
   - Returns the `Customer` instance that has spent the most money on the coffee instance provided as argument.
   - Returns `None` if there are no customers.
   - _hint: will need a way to remember all `Customer` objects_
