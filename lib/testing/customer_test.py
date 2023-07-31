@@ -87,7 +87,7 @@ class TestCustomer:
         assert len(set(customer.coffees())) == len(customer.coffees())
         assert len(customer.coffees()) == 2
 
-    def test_best_aficionado(self):
+    def test_most_aficionado(self):
         """returns the customer who has spent the most money on the coffee instance provided."""
         coffee = Coffee("Vanilla Latte")
         
@@ -98,4 +98,4 @@ class TestCustomer:
         Order(dima, coffee, 5)
         Order(dima, coffee, 2)
         
-        assert (coffee.best_aficionado() == dima)
+        assert (Customer.most_aficionado(coffee) == dima)
