@@ -8,7 +8,7 @@ class Coffee:
 
     @name.setter
     def name(self, name):
-        if isinstance(name, str) and len(name) > 0 and not hasattr(self, "name"):
+        if isinstance(name, str) and name and not hasattr(self, "name"):
             self._name = name
         else:
             raise AttributeError(
