@@ -22,7 +22,7 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory.
+To get started, run `pipenv install` while inside of this directory. Then run `pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
@@ -67,6 +67,7 @@ build out any helper methods if needed.
   - Names must be between 1 and 15 characters, inclusive
   - if you are using exceptions, uncomment lines 26-27 and 34-38 in
     `customer_test.py`.
+    - `raise Exception` if setter fails
 
 #### Coffee
 
@@ -77,6 +78,7 @@ build out any helper methods if needed.
   - Should not be able to change after the coffee is created
   - _hint: `hasattr()`_
   - if you are using exceptions, uncomment lines 24-25 in `coffee_test.py`.
+    - `raise Exception` if setter fails
 
 #### Order
 
@@ -85,6 +87,7 @@ build out any helper methods if needed.
 - `Order property price`
   - Returns the price for a coffee
   - Price must be a number between 1 and 10, inclusive
+    - `raise Exception` if setter fails
 
 ### Object Relationship Methods and Properties
 
@@ -93,23 +96,21 @@ build out any helper methods if needed.
 - `Order property customer`
   - Returns the customer object for that order
   - Must be of type `Customer`
+  - `raise Exception` if setter fails
 - `Order property coffee`
   - Returns the coffee object for that order
   - Must be of type `Coffee`
+  - `raise Exception` if setter fails
 
 #### Coffee
 
 - `Coffee orders(new_order=None)`
   - Adds new orders to coffee
   - Returns a list of all orders for that coffee
-  - orders must be of type `Order`
-  - _Will be called from `Order.__init__`_
-- `Coffee customers(new_customer=None)`
-  - Adds new customers to coffee
+  - Orders must be of type `Order`
+- `Coffee customers()`
   - Returns a **unique** list of all customers who have ordered a particular coffee.
   - Customers must be of type `Customer`
-  - _Will be called from `Order.__init__`_
-
 #### Customer
 
 - `Customer orders(new_order=None)`
@@ -139,6 +140,13 @@ build out any helper methods if needed.
   - Returns the average price for a coffee based on its orders
   - Reminder: you can calculate the average by adding up all the orders prices and
     dividing by the number of orders
+
+#### Bonus: Aggregate and Association Method
+
+- `Customer classmethod best_aficionado(cls, coffee)`
+  - Returns the `Customer` instance that has the most orders of the coffee provided as argument.
+  - Returns `None` if there are no customers.
+  - _hint: will need a way to remember all `Customer` objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 

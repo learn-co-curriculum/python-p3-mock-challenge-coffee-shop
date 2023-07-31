@@ -1,7 +1,8 @@
+import pytest
+
 from classes.coffee import Coffee
 from classes.customer import Customer
 from classes.order import Order
-import pytest
 
 
 class TestOrders:

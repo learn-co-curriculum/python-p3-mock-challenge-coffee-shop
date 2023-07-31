@@ -1,30 +1,47 @@
 class Customer:
+    all = []
+    
     def __init__(self, name):
         self.name = name
-        self._orders = []
-        self._coffees = []
+        type(self).all.append(self)
 
     @property
     def name(self):
         return self._name
-    
+
     @name.setter
     def name(self, name):
         if isinstance(name, str) and 1 <= len(name) <= 15:
             self._name = name
         else:
-            raise Exception
+            raise AttributeError("Must be a string between 1 and 15 characters long")
+
+    def orders(self):
+        return [order for order in Order.all if order.customer is self]
+
+    def coffees(self):
+        return list({order.coffee for order in self.orders()})
+
+    def create_order(self, new_coffee, new_price):
+        # remember to pass the values in this order
+        # customer, coffee, price
+        return Order(self, new_coffee, new_price)
+
+    @classmethod
+    def best_aficionado(cls, coffee):
+        if not isinstance(coffee, Coffee):
+            raise TypeError("Must be a Coffee instance")
+        if coffee_all_orders := [order for order in Order.all if order.coffee is coffee]:
+            return max(
+                cls.all,
+                key=lambda customer: sum(
+                    order.price
+                    for order in coffee_all_orders
+                    if order.customer is customer
+                ),
+            )
+        return None
         
-    def orders(self, new_order=None):
-        from classes.order import Order
-        if new_order and isinstance(new_order, Order):
-            self._orders.append(new_order)
-        return self._orders
-    
-    def coffees(self, new_coffee=None):
-        from classes.coffee import Coffee
-        if (new_coffee
-            and isinstance(new_coffee, Coffee)
-            and new_coffee not in self._coffees):
-            self._coffees.append(new_coffee)
-        return self._coffees
+
+from classes.order import Order
+from classes.coffee import Coffee
