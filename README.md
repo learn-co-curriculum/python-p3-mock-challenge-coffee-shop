@@ -22,7 +22,7 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory.
+To get started, run `pipenv install` while inside of this directory. Then run `pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
@@ -104,29 +104,20 @@ build out any helper methods if needed.
 
 #### Coffee
 
-- `Coffee orders(new_order=None)`
-  - Adds new orders to coffee
+- `Coffee orders()`
   - Returns a list of all orders for that coffee
-  - orders must be of type `Order`
-  - _Will be called from `Order.__init__`_
-- `Coffee customers(new_customer=None)`
-  - Adds new customers to coffee
+  - Orders must be of type `Order`
+- `Coffee customers()`
   - Returns a **unique** list of all customers who have ordered a particular coffee.
   - Customers must be of type `Customer`
-  - _Will be called from `Order.__init__`_
-
 #### Customer
 
-- `Customer orders(new_order=None)`
-  - Adds new orders to customer
+- `Customer orders()`
   - Returns a list of all orders a customer has ordered
   - orders must be of type `Order`
-  - _Will be called from `Order.__init__`_
-- `Customer coffees(new_coffee=None)`
-  - Adds new coffees to customer
+- `Customer coffees()`
   - Returns a **unique** list of all coffees a customer has ordered
   - Coffees must be of type `Coffee`
-  - _Will be called from `Order.__init__`_
 
 ### Aggregate and Association Methods
 
@@ -144,6 +135,13 @@ build out any helper methods if needed.
   - Returns the average price for a coffee based on its orders
   - Reminder: you can calculate the average by adding up all the orders prices and
     dividing by the number of orders
+
+#### Bonus: Aggregate and Association Method
+
+- `Customer classmethod best_aficionado(cls, coffee)`
+  - Returns the `Customer` instance that has the most orders of the coffee provided as argument.
+  - Returns `None` if there are no customers.
+  - _hint: will need a way to remember all `Customer` objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 

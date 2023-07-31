@@ -36,7 +36,7 @@ class TestCoffee:
         assert (len(coffee.orders()) == 2)
         assert (order_1 in coffee.orders())
         assert (order_2 in coffee.orders())
-        assert (not order_3 in coffee.orders())
+        assert (order_3 not  in coffee.orders())
 
     def test_orders_of_type_order(self):
         '''coffee orders are of type Order'''
@@ -54,8 +54,8 @@ class TestCoffee:
 
         customer = Customer('Steve')
         customer_2 = Customer('Dima')
-        order_1 = Order(customer, coffee, 2)
-        order_2 = Order(customer_2, coffee, 5)
+        Order(customer, coffee, 2)
+        Order(customer_2, coffee, 5)
 
         assert (customer in coffee.customers())
         assert (customer_2 in coffee.customers())
@@ -66,9 +66,9 @@ class TestCoffee:
 
         customer = Customer('Steve')
         customer_2 = Customer('Dima')
-        order_1 = Order(customer, coffee, 2)
-        order_2 = Order(customer_2, coffee, 2)
-        order_3 = Order(customer, coffee, 5)
+        Order(customer, coffee, 2)
+        Order(customer_2, coffee, 2)
+        Order(customer, coffee, 5)
 
         assert (len(set(coffee.customers())) == len(coffee.customers()))
         assert (len(coffee.customers()) == 2)
@@ -78,8 +78,8 @@ class TestCoffee:
         coffee = Coffee("Vanilla Latte")
         customer = Customer('Steve')
         customer_2 = Customer('Dima')
-        order_1 = Order(customer, coffee, 2)
-        order_2 = Order(customer_2, coffee, 5)
+        Order(customer, coffee, 2)
+        Order(customer_2, coffee, 5)
 
         assert (isinstance(coffee.customers()[0], Customer))
         assert (isinstance(coffee.customers()[1], Customer))
@@ -88,8 +88,8 @@ class TestCoffee:
         '''test num_orders()'''
         coffee = Coffee("Mocha")
         customer = Customer('Steve')
-        order_1 = Order(customer, coffee, 2)
-        order_2 = Order(customer, coffee, 5)
+        Order(customer, coffee, 2)
+        Order(customer, coffee, 5)
 
         assert (coffee.num_orders() == 2)
 
