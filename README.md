@@ -144,15 +144,15 @@ build out any helper methods if needed.
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
   - **customer_test.py**
-    - lines 26-27 and 34-38
+    - lines 25-26, 40-41, and 44-45
   - **coffee_test.py**
-    - lines 24-25
+    - lines 34-35
   - **order_test.py**
-    - 
+    - lines 46-47
 - Then, **uncomment** the following lines in the test files
   - **customer_test.py**
-    - lines 26-27 and 34-38
+    - lines 31-32, 48-49, and 52-53
   - **coffee_test.py**
-    - lines 24-25
+    - lines 22-23, 26-27, and 38-39
   - **order_test.py**
-    - 
+    - lines 32-33, 36-37, and 50-51
