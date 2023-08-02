@@ -22,7 +22,8 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory. Then run `pipenv shell` to jump into the shell.
+To get started, run `pipenv install` while inside of this directory. 
+Then run `pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
@@ -60,33 +61,33 @@ build out any helper methods if needed.
 #### Customer
 
 - `Customer __init__(self, name)`
-  - Customer should be initialized with a name
+  - Customer is initialized with a name
 - `Customer property name`
   - Returns customer's name
   - Names must be of type `str`
   - Names must be between 1 and 15 characters, inclusive
-  - Should **be able** to change after the customer is created
+  - Should **be able** to change after the customer is instantiated
 
 #### Coffee
 
 - `Coffee __init__(self, name)`
-  - Coffee should be initialized with a name
+  - Coffee is initialized with a name
 - `Coffee property name`
   - Returns the coffee's name
   - Names must be of type `str`
   - Names length must be greater or equal to 3 characters
-  - Should **not be able** to change after the coffee is created
+  - Should **not be able** to change after the coffee is instantiated
   - _hint: `hasattr()`_
 
 #### Order
 
 - `Order __init__(self, customer, coffee, price)`
-  - Order should be initialized with a customer, coffee, and a price
+  - Order is initialized with a `Customer` instance, a `Coffee` instance, and a price
 - `Order property price`
   - Returns the price for the order
   - Prices must be of type `float` 
   - Price must be a number between 1.0 and 10.0, inclusive
-  - Should **not be able** to change after the order is created
+  - Should **not be able** to change after the order is instantiated
   - _hint: `hasattr()`_
 
 ### Object Relationship Methods and Properties
@@ -121,7 +122,7 @@ build out any helper methods if needed.
 
 #### Customer
 
-- `Customer create_order()`
+- `Customer create_order(coffee, price)`
   - Receives a **coffee object** and a **price number** as arguments
   - Creates and returns a new Order instance and associates it with that customer and the coffee object provided.
 
@@ -137,7 +138,7 @@ build out any helper methods if needed.
 
 ### Bonus: Aggregate and Association Method
 
-- `Customer classmethod most_aficionado()`
+- `Customer classmethod most_aficionado(coffee)`
   - Receives a **coffee object** argument
   - Returns the `Customer` instance that has spent the most money on the coffee instance provided as argument.
   - Returns `None` if there are no customers for the coffee instance provided.
