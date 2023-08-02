@@ -123,23 +123,26 @@ build out any helper methods if needed.
 
 - `Customer create_order()`
   - Receives a **coffee object** and a **price number** as arguments
-  - Creates a new Order instance and associates it with that customer and the coffee object provided.
+  - Creates and returns a new Order instance and associates it with that customer and the coffee object provided.
 
 #### Coffee
 
 - `Coffee num_orders()`
   - Returns the total number of times a coffee has been ordered
+  - Returns `0` if the coffee has never been ordered
 - `Coffee average_price()`
   - Returns the average price for a coffee based on its orders
+  - Returns `0` if the coffee has never been ordered
   - Reminder: you can calculate the average by adding up all the orders prices and dividing by the number of orders
 
-#### Bonus: Aggregate and Association Method
+### Bonus: Aggregate and Association Method
 
 - `Customer classmethod most_aficionado()`
   - Receives a **coffee object** argument
   - Returns the `Customer` instance that has spent the most money on the coffee instance provided as argument.
   - Returns `None` if there are no customers for the coffee instance provided.
   - _hint: will need a way to remember all `Customer` objects_
+  - Uncomment lines 135-145 in the national_park_test file
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
