@@ -15,8 +15,8 @@ class Order:
     def customer(self, customer):
         if isinstance(customer, Customer):
             self._customer = customer
-        else:
-            raise AttributeError("Must be an instance of the Customer class")
+        # else:
+        #     raise Exception
 
     @property
     def coffee(self):
@@ -26,8 +26,8 @@ class Order:
     def coffee(self, coffee):
         if isinstance(coffee, Coffee):
             self._coffee = coffee
-        else:
-            raise AttributeError("Must be an instance of the Coffee class")
+        # else:
+        #     raise Exception
 
     @property
     def price(self):
@@ -35,10 +35,14 @@ class Order:
 
     @price.setter
     def price(self, price):
-        if isinstance(price, int) and 1 <= price <= 10:
+        if (
+            isinstance(price, float)
+            and 1.0 <= price <= 10.0
+            and not hasattr(self, "price")
+        ):
             self._price = price
-        else:
-            raise AttributeError("Must be an integer between 1 and 10")
+        # else:
+        #     raise Exception
 
 
 from classes.coffee import Coffee

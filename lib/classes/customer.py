@@ -1,6 +1,6 @@
 class Customer:
     all = []
-    
+
     def __init__(self, name):
         self.name = name
         type(self).all.append(self)
@@ -13,8 +13,8 @@ class Customer:
     def name(self, name):
         if isinstance(name, str) and 1 <= len(name) <= 15:
             self._name = name
-        else:
-            raise AttributeError("Must be a string between 1 and 15 characters long")
+        # else:
+        #     raise Exception
 
     def orders(self):
         return [order for order in Order.all if order.customer is self]
@@ -29,9 +29,11 @@ class Customer:
 
     @classmethod
     def most_aficionado(cls, coffee):
-        if not isinstance(coffee, Coffee):
-            raise TypeError("Must be a Coffee instance")
-        if coffee_all_orders := [order for order in Order.all if order.coffee is coffee]:
+        # if not isinstance(coffee, Coffee):
+        #     raise Exception
+        if coffee_all_orders := [
+            order for order in Order.all if order.coffee is coffee
+        ]:
             return max(
                 cls.all,
                 key=lambda customer: sum(
@@ -41,7 +43,7 @@ class Customer:
                 ),
             )
         return None
-        
+
 
 from classes.order import Order
 from classes.coffee import Coffee

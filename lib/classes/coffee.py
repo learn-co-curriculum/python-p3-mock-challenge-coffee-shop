@@ -8,12 +8,10 @@ class Coffee:
 
     @name.setter
     def name(self, name):
-        if isinstance(name, str) and name and not hasattr(self, "name"):
+        if isinstance(name, str) and len(name) >= 3 and not hasattr(self, "name"):
             self._name = name
-        else:
-            raise AttributeError(
-                "Must be a string with at least one character and it cannot be changed"
-            )
+        # else:
+        #     raise Exception
 
     def orders(self):
         return [order for order in Order.all if order.coffee is self]
