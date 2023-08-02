@@ -62,32 +62,32 @@ build out any helper methods if needed.
 - `Customer __init__(self, name)`
   - Customer should be initialized with a name
 - `Customer property name`
-  - Return name
+  - Returns customer's name
   - Names must be of type `str`
   - Names must be between 1 and 15 characters, inclusive
-  - if you are using exceptions, uncomment lines 26-27 and 34-38 in
-    `customer_test.py`.
-
+  - Should **be able** to change after the customer is created
 
 #### Coffee
 
 - `Coffee __init__(self, name)`
-  - Coffees should be initialized with a name, as a string
+  - Coffee should be initialized with a name
 - `Coffee property name`
   - Returns the coffee's name
-  - Should not be able to change after the coffee is created
+  - Names must be of type `str`
+  - Names length must be greater or equal to 3 characters
+  - Should **not be able** to change after the coffee is created
   - _hint: `hasattr()`_
-  - if you are using exceptions, uncomment lines 24-25 in `coffee_test.py`.
-
 
 #### Order
 
 - `Order __init__(self, customer, coffee, price)`
-  - Orders should be initialized with a customer, coffee, and a price (a number)
+  - Order should be initialized with a customer, coffee, and a price
 - `Order property price`
-  - Returns the price for a coffee
-  - Price must be a number between 1 and 10, inclusive
-
+  - Returns the price for the order
+  - Prices must be of type `float` 
+  - Price must be a number between 1.0 and 10.0, inclusive
+  - Should **not be able** to change after the order is created
+  - _hint: `hasattr()`_
 
 ### Object Relationship Methods and Properties
 
@@ -111,8 +111,8 @@ build out any helper methods if needed.
 #### Customer
 
 - `Customer orders()`
-  - Returns a list of all orders a customer has ordered
-  - orders must be of type `Order`
+  - Returns a list of all orders for that customer
+  - Orders must be of type `Order`
 - `Customer coffees()`
   - Returns a **unique** list of all coffees a customer has ordered
   - Coffees must be of type `Coffee`
@@ -121,34 +121,38 @@ build out any helper methods if needed.
 
 #### Customer
 
-- `Customer create_order(coffee, price)`
-  - given a **coffee object** and a price(as an integer), creates a
-    new order and associates it with that customer and coffee.
+- `Customer create_order()`
+  - Receives a **coffee object** and a **price number** as arguments
+  - Creates a new Order instance and associates it with that customer and the coffee object provided.
 
 #### Coffee
 
 - `Coffee num_orders()`
-  - Returns the total number of times that coffee has been ordered
+  - Returns the total number of times a coffee has been ordered
 - `Coffee average_price()`
   - Returns the average price for a coffee based on its orders
-  - Reminder: you can calculate the average by adding up all the orders prices and
-    dividing by the number of orders
+  - Reminder: you can calculate the average by adding up all the orders prices and dividing by the number of orders
 
 #### Bonus: Aggregate and Association Method
 
-- `Customer classmethod most_aficionado(cls, coffee)`
+- `Customer classmethod most_aficionado()`
+  - Receives a **coffee object** argument
   - Returns the `Customer` instance that has spent the most money on the coffee instance provided as argument.
-  - Returns `None` if there are no customers.
+  - Returns `None` if there are no customers for the coffee instance provided.
   - _hint: will need a way to remember all `Customer` objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
-
-Uncomment the following lines in the test files:
-
-#### customer_test.py
-
-- lines 26-27 and 34-38
-
-#### coffee_test.py
-
-- lines 24-25
+- First, **comment out** the following lines
+  - **customer_test.py**
+    - lines 26-27 and 34-38
+  - **coffee_test.py**
+    - lines 24-25
+  - **order_test.py**
+    - 
+- Then, **uncomment** the following lines in the test files
+  - **customer_test.py**
+    - lines 26-27 and 34-38
+  - **coffee_test.py**
+    - lines 24-25
+  - **order_test.py**
+    - 

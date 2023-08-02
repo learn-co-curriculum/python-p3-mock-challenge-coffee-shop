@@ -7,5 +7,8 @@ class Customer:
     
     def coffees(self):
         pass
+    
+    def create_order(self, coffee, price):
+        pass
 
 from classes.order import Order
