@@ -2,12 +2,10 @@ class Coffee:
     def __init__(self, name):
         self.name = name
         
-    def orders(self, new_order=None):
-        from classes.order import Order
+    def orders(self):
         pass
     
-    def customers(self, new_customer=None):
-        from classes.customer import Customer
+    def customers(self):
         pass
     
     def num_orders(self):
@@ -15,3 +13,5 @@ class Coffee:
     
     def average_price(self):
         pass
+
+from classes.order import Order
