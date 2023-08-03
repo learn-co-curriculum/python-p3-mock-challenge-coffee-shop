@@ -22,7 +22,8 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory.
+To get started, run `pipenv install` while inside of this directory. 
+Then run `pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
@@ -60,31 +61,34 @@ build out any helper methods if needed.
 #### Customer
 
 - `Customer __init__(self, name)`
-  - Customer should be initialized with a name
+  - Customer is initialized with a name
 - `Customer property name`
-  - Return name
+  - Returns customer's name
   - Names must be of type `str`
   - Names must be between 1 and 15 characters, inclusive
-  - if you are using exceptions, uncomment lines 26-27 and 34-38 in
-    `customer_test.py`.
+  - Should **be able** to change after the customer is instantiated
 
 #### Coffee
 
 - `Coffee __init__(self, name)`
-  - Coffees should be initialized with a name, as a string
+  - Coffee is initialized with a name
 - `Coffee property name`
   - Returns the coffee's name
-  - Should not be able to change after the coffee is created
+  - Names must be of type `str`
+  - Names length must be greater or equal to 3 characters
+  - Should **not be able** to change after the coffee is instantiated
   - _hint: `hasattr()`_
-  - if you are using exceptions, uncomment lines 24-25 in `coffee_test.py`.
 
 #### Order
 
 - `Order __init__(self, customer, coffee, price)`
-  - Orders should be initialized with a customer, coffee, and a price (a number)
+  - Order is initialized with a `Customer` instance, a `Coffee` instance, and a price
 - `Order property price`
-  - Returns the price for a coffee
-  - Price must be a number between 1 and 10, inclusive
+  - Returns the price for the order
+  - Prices must be of type `float` 
+  - Price must be a number between 1.0 and 10.0, inclusive
+  - Should **not be able** to change after the order is instantiated
+  - _hint: `hasattr()`_
 
 ### Object Relationship Methods and Properties
 
@@ -99,55 +103,60 @@ build out any helper methods if needed.
 
 #### Coffee
 
-- `Coffee orders(new_order=None)`
-  - Adds new orders to coffee
+- `Coffee orders()`
   - Returns a list of all orders for that coffee
-  - orders must be of type `Order`
-  - _Will be called from `Order.__init__`_
-- `Coffee customers(new_customer=None)`
-  - Adds new customers to coffee
+  - Orders must be of type `Order`
+- `Coffee customers()`
   - Returns a **unique** list of all customers who have ordered a particular coffee.
   - Customers must be of type `Customer`
-  - _Will be called from `Order.__init__`_
-
 #### Customer
 
-- `Customer orders(new_order=None)`
-  - Adds new orders to customer
-  - Returns a list of all orders a customer has ordered
-  - orders must be of type `Order`
-  - _Will be called from `Order.__init__`_
-- `Customer coffees(new_coffee=None)`
-  - Adds new coffees to customer
+- `Customer orders()`
+  - Returns a list of all orders for that customer
+  - Orders must be of type `Order`
+- `Customer coffees()`
   - Returns a **unique** list of all coffees a customer has ordered
   - Coffees must be of type `Coffee`
-  - _Will be called from `Order.__init__`_
 
 ### Aggregate and Association Methods
 
 #### Customer
 
 - `Customer create_order(coffee, price)`
-  - given a **coffee object** and a price(as an integer), creates a
-    new order and associates it with that customer and coffee.
+  - Receives a **coffee object** and a **price number** as arguments
+  - Creates and returns a new Order instance and associates it with that customer and the coffee object provided.
 
 #### Coffee
 
 - `Coffee num_orders()`
-  - Returns the total number of times that coffee has been ordered
+  - Returns the total number of times a coffee has been ordered
+  - Returns `0` if the coffee has never been ordered
 - `Coffee average_price()`
   - Returns the average price for a coffee based on its orders
-  - Reminder: you can calculate the average by adding up all the orders prices and
-    dividing by the number of orders
+  - Returns `0` if the coffee has never been ordered
+  - Reminder: you can calculate the average by adding up all the orders prices and dividing by the number of orders
+
+### Bonus: Aggregate and Association Method
+
+- `Customer classmethod most_aficionado(coffee)`
+  - Receives a **coffee object** argument
+  - Returns the `Customer` instance that has spent the most money on the coffee instance provided as argument.
+  - Returns `None` if there are no customers for the coffee instance provided.
+  - _hint: will need a way to remember all `Customer` objects_
+  - Uncomment lines 135-145 in the national_park_test file
 
 ### Bonus: For any invalid inputs raise an `Exception`.
-
-Uncomment the following lines in the test files:
-
-#### customer_test.py
-
-- lines 26-27 and 34-38
-
-#### coffee_test.py
-
-- lines 24-25
+- First, **comment out** the following lines
+  - **customer_test.py**
+    - lines 25-26, 40-41, and 44-45
+  - **coffee_test.py**
+    - lines 34-35
+  - **order_test.py**
+    - lines 46-47
+- Then, **uncomment** the following lines in the test files
+  - **customer_test.py**
+    - lines 31-32, 48-49, and 52-53
+  - **coffee_test.py**
+    - lines 22-23, 26-27, and 38-39
+  - **order_test.py**
+    - lines 32-33, 36-37, and 50-51
