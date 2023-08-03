@@ -143,7 +143,7 @@ build out any helper methods if needed.
   - Returns the `Customer` instance that has spent the most money on the coffee instance provided as argument.
   - Returns `None` if there are no customers for the coffee instance provided.
   - _hint: will need a way to remember all `Customer` objects_
-  - Uncomment lines 135-145 in the national_park_test file
+  - Uncomment lines 135-145 in the customer_test file
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
