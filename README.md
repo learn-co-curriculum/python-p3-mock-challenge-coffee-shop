@@ -154,6 +154,7 @@ build out any helper methods if needed.
   - **order_test.py**
     - lines 46-47
 - Then, **uncomment** the following lines in the test files
+
   - **customer_test.py**
     - lines 31-32, 48-49, and 52-53
   - **coffee_test.py**
