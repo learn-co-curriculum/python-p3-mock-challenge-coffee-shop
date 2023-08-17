@@ -1,12 +1,12 @@
 import pytest
 
-from classes.coffee import Coffee
-from classes.customer import Customer
-from classes.order import Order
+from classes.many_to_many import Coffee
+from classes.many_to_many import Customer
+from classes.many_to_many import Order
 
 
 class TestOrders:
-    '''Order in order.py'''
+    '''Order in many_to_many.py'''
 
     def test_has_price(self):
         '''Order is initialized with a price'''
