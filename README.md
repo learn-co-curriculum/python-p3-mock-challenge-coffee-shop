@@ -4,8 +4,8 @@ For this assignment, we'll be working with a Coffee shop-style domain.
 
 We have three models: `Coffee`, `Customer`, and `Order`.
 
-For our purposes, a `Coffee` has many `Order`s, a `Customer` has many
-`Order`s, and a `Order` belongs to a `Customer` and to a `Coffee`.
+For our purposes, a `Coffee` has many `Order`s, a `Customer` has many `Order`s,
+and a `Order` belongs to a `Customer` and to a `Coffee`.
 
 `Coffee` - `Customer` is a many to many relationship.
 
@@ -22,15 +22,15 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory. 
-Then run `pipenv shell` to jump into the shell.
+To get started, run `pipenv install` while inside of this directory. Then run
+`pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
 easiest. Be careful: some of the later methods rely on earlier ones.
 
-**Remember!** This code challenge has tests to help you check your work. You
-can run `pytest` to make sure your code is functional before submitting.
+**Remember!** This code challenge has tests to help you check your work. You can
+run `pytest` to make sure your code is functional before submitting.
 
 We've provided you with a tool that you can use to test your code. To use it,
 run `python debug.py` from the command line. This will start a `ipdb` session
@@ -82,10 +82,11 @@ build out any helper methods if needed.
 #### Order
 
 - `Order __init__(self, customer, coffee, price)`
-  - Order is initialized with a `Customer` instance, a `Coffee` instance, and a price
+  - Order is initialized with a `Customer` instance, a `Coffee` instance, and a
+    price
 - `Order property price`
   - Returns the price for the order
-  - Prices must be of type `float` 
+  - Prices must be of type `float`
   - Price must be a number between 1.0 and 10.0, inclusive
   - Should **not be able** to change after the order is instantiated
   - _hint: `hasattr()`_
@@ -107,8 +108,10 @@ build out any helper methods if needed.
   - Returns a list of all orders for that coffee
   - Orders must be of type `Order`
 - `Coffee customers()`
-  - Returns a **unique** list of all customers who have ordered a particular coffee.
+  - Returns a **unique** list of all customers who have ordered a particular
+    coffee.
   - Customers must be of type `Customer`
+
 #### Customer
 
 - `Customer orders()`
@@ -124,7 +127,8 @@ build out any helper methods if needed.
 
 - `Customer create_order(coffee, price)`
   - Receives a **coffee object** and a **price number** as arguments
-  - Creates and returns a new Order instance and associates it with that customer and the coffee object provided.
+  - Creates and returns a new Order instance and associates it with that
+    customer and the coffee object provided.
 
 #### Coffee
 
@@ -134,18 +138,21 @@ build out any helper methods if needed.
 - `Coffee average_price()`
   - Returns the average price for a coffee based on its orders
   - Returns `0` if the coffee has never been ordered
-  - Reminder: you can calculate the average by adding up all the orders prices and dividing by the number of orders
+  - Reminder: you can calculate the average by adding up all the orders prices
+    and dividing by the number of orders
 
 ### Bonus: Aggregate and Association Method
 
 - `Customer classmethod most_aficionado(coffee)`
   - Receives a **coffee object** argument
-  - Returns the `Customer` instance that has spent the most money on the coffee instance provided as argument.
+  - Returns the `Customer` instance that has spent the most money on the coffee
+    instance provided as argument.
   - Returns `None` if there are no customers for the coffee instance provided.
   - _hint: will need a way to remember all `Customer` objects_
-  - Uncomment lines 135-145 in the customer_test file
+  - Uncomment lines 137-147 in the customer_test file
 
 ### Bonus: For any invalid inputs raise an `Exception`.
+
 - First, **comment out** the following lines
   - **customer_test.py**
     - lines 25-26, 40-41, and 44-45
