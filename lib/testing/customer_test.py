@@ -140,7 +140,7 @@ class TestCustomer:
     #     steve = Customer("Steve")
     #     dima = Customer("Dima")
     #     Order(steve, coffee, 2.0)
-    #     Order(steve, coffee, 4)
+    #     Order(steve, coffee, 4.0)
     #     Order(dima, coffee, 5.0)
     #     Order(dima, coffee, 2.0)
         
